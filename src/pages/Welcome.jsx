@@ -18,7 +18,7 @@ const Welcome = () => {
                 Uniteach was made  for you to find students or for you to find teachers.
               </p>
               <button className="hidden md:inline bg-blue text-white my-3">
-                <Link>register now</Link>
+                <Link to="/register">register now</Link>
               </button>
             </div>
           </div>
