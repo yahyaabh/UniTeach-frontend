@@ -2,8 +2,10 @@ import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 export default function Register() {
 
+  const navigate = useNavigate();
   const form = useForm();
   const {register , control, handleSubmit, formState} = form;
   const {errors} =formState
@@ -21,7 +23,9 @@ export default function Register() {
   if( res.statusText == "Bad Request") {
     toast.error("number already registered")
   }
-
+  else if(res.status == 200) {
+    return navigate("/users")
+  }
   }
 
   return (
