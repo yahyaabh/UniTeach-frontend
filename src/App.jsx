@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Users from "./pages/Users";
+import ProtectedRoute from "./components/protectedRoute";
 function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true }}>
@@ -17,7 +18,9 @@ function App() {
           </Route>
           <Route path="/register" element={<Register/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
-          <Route path="/users" element={<Users/>}></Route>
+          
+            <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}></Route>
+          
         </Routes>
     </BrowserRouter>
   )
