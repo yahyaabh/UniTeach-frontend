@@ -22,6 +22,9 @@ export default function Login() {
   }
 
   else if(res.status == 200) {
+    const data = await res.json()
+    sessionStorage.setItem("id",data.id)
+    
     return navigate("/users")
   }
   else if(res.statusText == "Unauthorized") {

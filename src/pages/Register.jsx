@@ -24,6 +24,8 @@ export default function Register() {
     toast.error("number already registered")
   }
   else if(res.status == 200) {
+    const data = await res.json()
+    sessionStorage.setItem("id",data.id)
     return navigate("/users")
   }
   }
