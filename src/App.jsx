@@ -7,6 +7,7 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Users from "./pages/Users";
 import ProtectedRoute from "./components/protectedRoute";
+import Profile from "./pages/Profile";
 function App() {
   return (
     <BrowserRouter future={{ v7_startTransition: true }}>
@@ -20,7 +21,7 @@ function App() {
           <Route path="/login" element={<Login/>}></Route>
           
             <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}></Route>
-          
+            <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>}></Route>
         </Routes>
     </BrowserRouter>
   )

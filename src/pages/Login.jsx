@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -7,7 +6,7 @@ export default function Login() {
 
   const navigate = useNavigate();
   const form = useForm();
-  const {register , control, handleSubmit, formState} = form;
+  const {register , handleSubmit, formState} = form;
   const {errors} =formState
 
   const onSubmit = async(data) => {
@@ -48,7 +47,7 @@ export default function Login() {
           
             <button className="bg-yellow p-1 px-3 my-2 text-blue">login</button>
       </form>
-      <DevTool control={control}/>
+      
       <Link  to="../register">don't have an account? <span className="text-yellow underline"> sign up.</span></Link>
     </div>
   )
