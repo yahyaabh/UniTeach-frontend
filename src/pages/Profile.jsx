@@ -6,8 +6,7 @@ import { toast } from "react-toastify";
 
 export default function Profile() {
     const form = useForm();
-    const {register , handleSubmit, formState} = form;
-    const {errors} =formState
+    const {register , handleSubmit} = form;
     const [info, setInfo] = useState([])
 
     useEffect( () => { const getUsersInfo = async() => {
@@ -59,20 +58,20 @@ export default function Profile() {
   return (
     <div className="w-full h-screen bg-blue-dark flex flex-col  items-center">
       <header className="w-full h-1/4 flex flex-col justify-center items-center">
-        <button className=" bg-white border-white text-blue"><Link className="flex flex-row justify-center items-center" to=".."><IoIosArrowBack/></Link></button>
+        <button className=" bg-white border-white text-blue"><Link className="flex flex-row justify-center items-center" to="../users"><IoIosArrowBack/></Link></button>
         <h1 className=" bg-yellow p-2 border border-white text-blue-dark rounded-md my-2">{info.name}'s profile</h1>
       </header>
       <form onSubmit={handleSubmit(skillsSubmit)} className="border border-white rounded-md p-2 flex flex-col items-center border-2">
             <label htmlFor="skills">add your skills:</label>
-            <input {...register("skills")} name="skills" id="skills" type="text" className="bg-white my-2 text-blue-dark font-medium px-1  focus:border-yellow focus:outline-none"></input>
-            <p className="text-sm text-red-600 ">{errors.number?.message}</p>
+            <input {...register("skills")} name="skills" id="skills" type="text" className="bg-white my-2 text-blue-dark font-medium px-1  focus:border-yellow focus:outline-none rounded-md"></input>
+            
             <button className="bg-yellow text-blue-dark my-2 py-0">add</button>
       </form>
 
       <form onSubmit={handleSubmit(needsSubmit)} className="border border-white rounded-md p-2 flex flex-col items-center border-2 my-2">
             <label htmlFor="needs">add your needs:</label>
-            <input {...register("needs")} name="needs" id="needs" type="text" className="bg-white my-2 text-blue-dark font-medium px-1  focus:border-yellow focus:outline-none"></input>
-            <p className="text-sm text-red-600 ">{errors.number?.message}</p>
+            <input {...register("needs")} name="needs" id="needs" type="text" className="bg-white my-2 text-blue-dark font-medium px-1  focus:border-yellow focus:outline-none rounded-md"></input>
+            
             <button className="bg-yellow text-blue-dark my-2 py-0">add</button>
       </form>
       
