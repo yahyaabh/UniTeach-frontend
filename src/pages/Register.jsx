@@ -11,7 +11,7 @@ export default function Register() {
   const {errors} =formState
 
   const onSubmit = async(data) => {
-    const res = await fetch("http://localhost:3000/register" ,{method:'POST',headers:{"Content-type": "application/json; charset=UTF-8"},
+    const res = await fetch("https://uniteach-api.onrender.com/register" ,{method:'POST',headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
       number: data.number,
       name: data.name,

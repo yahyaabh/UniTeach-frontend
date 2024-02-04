@@ -2,7 +2,7 @@ import { FaUserGraduate } from "react-icons/fa6";
 
 
 export default function UserDisplay({matching}) {
-  console.log(matching)
+ 
   return (
     <>
       {matching.map(match => (

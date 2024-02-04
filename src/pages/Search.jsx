@@ -8,11 +8,11 @@ export default function Search() {
     const [users,setUsers] = useState([]);
 
     const form = useForm();
-    const {register , handleSubmit, formState} = form;
-    const {errors} =formState;
+    const {register , handleSubmit} = form;
+    
 
     const submitSearch = async(data) => {
-        const res = await fetch("http://localhost:3000/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+        const res = await fetch("https://uniteach-api.onrender.com/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
     message:data.message
   })
@@ -20,7 +20,6 @@ export default function Search() {
 
 
      const searchRes = await res.json();
-     console.log(searchRes)
         setUsers(searchRes)
         
         
@@ -35,7 +34,7 @@ export default function Search() {
       <h1>Search for the skills or needs you want :</h1>
       <form className="flex flex-row justify-center items-center" onSubmit={handleSubmit(submitSearch)}>
         <input {...register("message", {required:"Field can't be empty."})} name="message" id="message" className="bg-white my-2 text-blue-dark font-medium px-1  focus:border-yellow focus:outline-none rounded-md mx-1 "></input>
-        <p className="text-sm text-red-600 ">{errors.number?.message}</p>
+        
         <button className="py-1 bg-yellow text-blue-dark rounded-md"><FaSearch/></button>
       </form>
       <div className="w-full flex justify-center items-center">

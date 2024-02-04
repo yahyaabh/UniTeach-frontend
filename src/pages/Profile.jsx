@@ -10,7 +10,7 @@ export default function Profile() {
     const [info, setInfo] = useState([])
 
     useEffect( () => { const getUsersInfo = async() => {
-        const res = await fetch("http://localhost:3000/getInfo",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+        const res = await fetch("https://uniteach-api.onrender.com/getInfo",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
       body: JSON.stringify({
         id:sessionStorage.getItem("id")
       })
@@ -26,7 +26,7 @@ export default function Profile() {
         const skills = data.skills;
         
 
-        const res = await fetch("http://localhost:3000/add/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+        const res = await fetch("https://uniteach-api.onrender.com/add/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
       body: JSON.stringify({
         id:sessionStorage.getItem("id"),
         message:skills
@@ -42,7 +42,7 @@ export default function Profile() {
         const needs = data.needs;
         
 
-        const res = await fetch("http://localhost:3000/add/needs",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+        const res = await fetch("https://uniteach-api.onrender.com/add/needs",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
       body: JSON.stringify({
         id:sessionStorage.getItem("id"),
         message:needs

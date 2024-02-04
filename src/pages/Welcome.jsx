@@ -15,7 +15,7 @@ const Welcome = () => {
             <div className="w-3/4 text-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  text-blue text-xl md:-translate-x-1/3 md:text-start md:w-2/4">
               <h1 className="font-bold  text-3xl py-4">Welcome to UNITEACH.</h1>
               <p className="text-lg">
-                Uniteach was made  for you to find students or for you to find teachers.
+                Uniteach was made for students to connect help and benefit each others.
               </p>
               <button className="hidden md:inline bg-blue text-white my-3">
                 <Link to="/register">register now</Link>
@@ -23,7 +23,7 @@ const Welcome = () => {
             </div>
           </div>
           <div className="flex flex-col justify-evenly items-center px-2 mt-10 md:flex-row md:w-3/4">
-            <p className="text-center text-sm md:text-xl font-mono">Find teachers or mentors to help you, find students that need your help, connect with each others and benefit. </p>
+            <p className="text-center text-sm md:text-xl font-mono">Find other students that can help you studying, help other students with their studying or study together!</p>
             <img className="rounded-xl my-3 w-full" src={image2}></img>
           </div>
           <footer className="flex justify-between items-center space-x-20 my-2">
