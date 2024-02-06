@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { toast } from "react-toastify";
 
+
 export default function Profile() {
     const form = useForm();
     const {register , handleSubmit} = form;

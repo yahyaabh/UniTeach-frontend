@@ -1,16 +1,19 @@
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Load from "../components/Load";
 export default function Register() {
 
   const navigate = useNavigate();
   const form = useForm();
-  const {register , control, handleSubmit, formState} = form;
+  const {register , handleSubmit, formState} = form;
+  const [loading,setLoading] = useState(false)
   const {errors} =formState
 
   const onSubmit = async(data) => {
+    setLoading(true)
     const res = await fetch("https://uniteach-api.onrender.com/register" ,{method:'POST',headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
       number: data.number,
@@ -20,6 +23,7 @@ export default function Register() {
       gender:data.gender
     })
   })
+  setLoading(false)
   if( res.statusText == "Bad Request") {
     toast.error("number already registered")
   }
@@ -56,9 +60,11 @@ export default function Register() {
               <option value="female">female</option>
             </select>
             <p className="text-sm text-red-600 ">{errors.gender?.message}</p>
-            <button className="bg-yellow p-1 px-3 my-2 text-blue">register</button>
+            {loading?
+            <Load/>:
+            <button className="bg-yellow p-1 px-3 my-2 text-blue">register</button>}
       </form>
-      <DevTool control={control}/>
+      
       <Link  to="../login">already registered? <span className="text-yellow underline"> log in.</span></Link>
     </div>
   )

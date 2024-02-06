@@ -4,19 +4,23 @@ import { FaSearch } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import UserDisplay from "../components/UserDisplay";
+import Load from "../components/Load";
 export default function Search() {
     const [users,setUsers] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     const form = useForm();
     const {register , handleSubmit} = form;
     
 
     const submitSearch = async(data) => {
+      setLoading(true)
         const res = await fetch("https://uniteach-api.onrender.com/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
     message:data.message
   })
   })
+  setLoading(false)
 
 
      const searchRes = await res.json();
@@ -37,11 +41,15 @@ export default function Search() {
         
         <button className="py-1 bg-yellow text-blue-dark rounded-md"><FaSearch/></button>
       </form>
+      {loading? <Load/> :
       <div className="w-full flex justify-center items-center">
-        {users.length != 0 &&
+        {users.length != 0 ?
         <UserDisplay matching={users}/>
+        :
+        <p className="text-yellow">no users</p>
         }
       </div>
+}
     </div>
   )
 }

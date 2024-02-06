@@ -3,6 +3,7 @@ import {  FaSearch } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { IoIosArrowBack } from "react-icons/io";
 import { useEffect, useState } from "react";
+import Load from "../components/Load";
 import UserDisplay from "../components/UserDisplay"
 
 
@@ -10,14 +11,17 @@ import UserDisplay from "../components/UserDisplay"
 export default function Users() {
   const [message , setMessage] = useState("");
   const [matching, setMatching] = useState([])
+  const [loading,setLoading] = useState(false)
   
   
    useEffect( () => { const getUsersInfo = async() => {
+    setLoading(true)
       const res = await fetch("https://uniteach-api.onrender.com/getInfo",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
       id:sessionStorage.getItem("id")
     })
     })
+    setLoading(false)
 
     const data = await res.json();
     const msg = data.needs
@@ -53,11 +57,16 @@ export default function Users() {
       </header>
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="mb-2 font-semibold">Users with skills you need:</h1>
+        { loading? <Load/> :
         <div className="w-full flex justify-center items-center">
-        {matching && 
+        {matching &&
+          matching.length !=0 ?
           <UserDisplay matching={matching}/>
+            : 
+          <p className="text-yellow">No macthes for your needs.</p>
          }
         </div>
+} 
       </div>
 
     </div>
