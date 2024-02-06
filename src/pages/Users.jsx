@@ -56,7 +56,7 @@ export default function Users() {
         <button className="bg-yellow border-white text-blue"><Link className="flex flex-col justify-center items-center" to="../search"><FaSearch/>search</Link></button>
       </header>
       <div className="flex flex-col justify-center items-center w-full">
-        <h1 className="mb-2 font-semibold">Users with skills you need:</h1>
+        <h1 className="mb-2 font-semibold">Users that match with you:</h1>
         { loading? <Load/> :
         <div className="w-full flex justify-center items-center">
         {matching &&
