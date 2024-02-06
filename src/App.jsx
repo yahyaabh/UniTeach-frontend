@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import Users from "./pages/Users";
-import ProtectedRoute from "./components/protectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Profile from "./pages/Profile";
 import Search from "./pages/Search";
 function App() {
