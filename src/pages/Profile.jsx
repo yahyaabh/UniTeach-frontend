@@ -33,7 +33,7 @@ export default function Profile() {
       })
       })
       const results = await res.json();
-      if(results.message == "Your skills have been added.") {
+      if(results.message == "Your skills  have been added.") {
         toast.success(results.message)
       }
 

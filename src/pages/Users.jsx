@@ -13,7 +13,7 @@ export default function Users() {
   
   
    useEffect( () => { const getUsersInfo = async() => {
-      const res = await fetch("http://localhost:3000/getInfo",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+      const res = await fetch("https://uniteach-api.onrender.com/getInfo",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
       id:sessionStorage.getItem("id")
     })
@@ -30,7 +30,7 @@ export default function Users() {
 
 
   useEffect ( () => {const getMatches = async () => {
-    const res = await fetch("http://localhost:3000/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+    const res = await fetch("https://uniteach-api.onrender.com/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
   body: JSON.stringify({
     message:message
   })
