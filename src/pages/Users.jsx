@@ -34,7 +34,8 @@ export default function Users() {
 
 
   useEffect ( () => {const getMatches = async () => {
-    const res = await fetch("https://uniteach-api.onrender.com/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+    //send req to search for skills that match your needs
+    const res = await fetch("https://uniteach-api.onrender.com/search/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
   body: JSON.stringify({
     message:message
   })
@@ -58,7 +59,7 @@ export default function Users() {
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="mb-2 font-semibold">Users that match with you:</h1>
         { loading? <Load/> :
-        <div className="w-full flex justify-center items-center">
+        <div className="w-full flex flex-col justify-center items-center">
         {matching &&
           matching.length !=0 ?
           <UserDisplay matching={matching}/>

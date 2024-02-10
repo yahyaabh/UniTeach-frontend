@@ -15,7 +15,7 @@ export default function Search() {
 
     const submitSearch = async(data) => {
       setLoading(true)
-        const res = await fetch("https://uniteach-api.onrender.com/search",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
+        const res = await fetch("https://uniteach-api.onrender.com/search/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
     message:data.message
   })
