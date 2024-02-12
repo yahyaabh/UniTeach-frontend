@@ -52,9 +52,9 @@ export default function Users() {
   return (
     <div className="h-screen w-screen bg-blue">
       <header className=" h-1/4 flex flex-row justify-around items-center">
-        <button className="bg-yellow border-white text-blue"><Link className="flex flex-col justify-center items-center" to=".."><IoIosArrowBack/>Go back</Link></button>
-        <button className="bg-yellow border-white text-blue"><Link className="flex flex-col justify-center items-center" to="../profile"><CgProfile/>Profile</Link></button>
-        <button className="bg-yellow border-white text-blue"><Link className="flex flex-col justify-center items-center" to="../search"><FaSearch/>search</Link></button>
+      <Link className="flex flex-col justify-center items-center" to=".."><button className="bg-yellow border-white text-blue flex flex-col justify-center items-center"><IoIosArrowBack/>Go back</button></Link>
+        <Link className="flex flex-col justify-center items-center" to="../profile"><button className="bg-yellow border-white text-blue flex flex-col justify-center items-center"><CgProfile/>Profile</button></Link>
+        <Link className="flex flex-col justify-center items-center" to="../search"><button className="bg-yellow border-white text-blue flex flex-col justify-center items-center"><FaSearch/>search</button></Link>
       </header>
       <div className="flex flex-col justify-center items-center w-full">
         <h1 className="mb-2 font-semibold">Users that match with you:</h1>

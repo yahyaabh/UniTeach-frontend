@@ -15,9 +15,11 @@ export default function Search() {
 
     const submitSearch = async(data) => {
       setLoading(true)
+      let cleanedMessage = data.message.replace(/[.,]|(?:\band\b|\bor\b)/g, '').replace(/\s$/,"").replace(/\s+/g, '|'); 
+      console.log(cleanedMessage)
         const res = await fetch("https://uniteach-api.onrender.com/search/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
     body: JSON.stringify({
-    message:data.message
+    message:cleanedMessage
   })
   })
   setLoading(false)
@@ -33,7 +35,7 @@ export default function Search() {
   return (
     <div className="flex flex-col justify-start items-center h-screen w-screen bg-blue-dark">
       <header className=" h-1/4 flex flex-row justify-around items-center">
-      <button className="bg-white border-white text-blue "><Link className="flex flex-row justify-center items-center" to="../users"><IoIosArrowBack/></Link></button>
+      <Link className="flex flex-row justify-center items-center" to="../users"><button className="bg-white border-white text-blue "><IoIosArrowBack/></button></Link>
       </header>
       <h1>Search for the skills or needs you want :</h1>
       <form className="flex flex-row justify-center items-center" onSubmit={handleSubmit(submitSearch)}>

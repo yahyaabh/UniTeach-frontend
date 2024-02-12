@@ -17,8 +17,10 @@ export default function Profile() {
       })
       })
   
-      const data = await res.json();
-      setInfo(data)
+      let data = await res.json();
+      let cleanedData = data.message.replace(/[.,]|(?:\band\b|\bor\b)/g, '').replace(/\s$/,"").replace(/\s+/g, '|');
+      
+      setInfo(cleanedData)
     }
     getUsersInfo()
      } ,[])  
@@ -59,7 +61,7 @@ export default function Profile() {
   return (
     <div className="w-full h-screen bg-blue-dark flex flex-col  items-center">
       <header className="w-full h-1/4 flex flex-col justify-center items-center">
-        <button className=" bg-white border-white text-blue"><Link className="flex flex-row justify-center items-center" to="../users"><IoIosArrowBack/></Link></button>
+        <Link className="flex flex-row justify-center items-center" to="../users"><button className=" bg-white border-white text-blue"><IoIosArrowBack/></button></Link>
         <h1 className=" bg-yellow p-2 border border-white text-blue-dark rounded-md my-2">{info.name}'s profile</h1>
       </header>
       <form onSubmit={handleSubmit(skillsSubmit)} className="border border-white rounded-md p-2 flex flex-col items-center border-2">
