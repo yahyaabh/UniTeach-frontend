@@ -18,9 +18,9 @@ export default function Profile() {
       })
   
       let data = await res.json();
-      let cleanedData = data.message.replace(/[.,]|(?:\band\b|\bor\b)/g, '').replace(/\s$/,"").replace(/\s+/g, '|');
       
-      setInfo(cleanedData)
+      
+      setInfo(data)
     }
     getUsersInfo()
      } ,[])  

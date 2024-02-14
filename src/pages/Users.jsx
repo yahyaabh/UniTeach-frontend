@@ -35,9 +35,10 @@ export default function Users() {
 
   useEffect ( () => {const getMatches = async () => {
     //send req to search for skills that match your needs
+    let cleanedMessage = message.replace(/[.,]|(?:\band\b|\bor\b)/g, '').replace(/\s$/,"").replace(/\s+/g, '|');
     const res = await fetch("https://uniteach-api.onrender.com/search/skills",{method:"POST",headers:{"Content-type": "application/json; charset=UTF-8"},
   body: JSON.stringify({
-    message:message
+    message: cleanedMessage
   })
   })
   const data = await res.json();
