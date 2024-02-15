@@ -24,7 +24,6 @@ export default function Login() {
   if( res.status == 400) {
     toast.error("the number is not registered")
   }
-
   else if(res.status == 200) {
     const data = await res.json()
     sessionStorage.setItem("id",data.id)

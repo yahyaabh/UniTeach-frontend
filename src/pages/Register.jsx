@@ -27,6 +27,9 @@ export default function Register() {
   if( res.statusText == "Bad Request") {
     toast.error("number already registered")
   }
+  else if(res.status == 400) {
+    toast.error("error happened please try again.")
+  }
   else if(res.status == 200) {
     const data = await res.json()
     sessionStorage.setItem("id",data.id)
