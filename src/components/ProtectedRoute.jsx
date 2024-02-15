@@ -9,7 +9,7 @@ export default function ProtectedRoute({children}) {
 
     useEffect(() => {
     if(id == null) {
-        return navigate("/login")
+        return navigate("/register")
     }}
     ,[id,navigate])
 
